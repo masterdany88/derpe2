@@ -91,10 +91,25 @@
       <artifactId>slf4j-log4j12</artifactId>
     </dependency>
 
+
+   <dependency>
+       <groupid>org.junit.jupiter</groupid>
+        <artifactid>junit-jupiter-api</artifactid>
+        <version>5.0.0-M3</version>
+        <scope>test</scope>
+    </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
+       <groupid>junit</groupid>
+       <artifactid>junit</artifactid>
+       <version>4.12</version>
+       <scope>test</scope>
+   </dependency>
+ 
+    <dependency>
+        <groupid>pl.pragmatists</groupid>
+        <artifactid>JUnitParams</artifactid>
+        <version>1.0.6</version>
+        <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -262,6 +277,29 @@
           </execution>
         </executions>
       </plugin>
+      
+     <plugin>
+           <artifactid>maven-surefire-plugin</artifactid>
+            <version>2.19</version>
+              <dependencies>
+                <dependency>
+                   <groupid>org.junit.platform</groupid>
+                    <artifactid>junit-platform-surefire-provider</artifactid>
+                   <version>1.0.0-M3</version>
+               </dependency>
+               <dependency>
+                    <groupid>org.junit.jupiter</groupid>
+                   <artifactid>junit-jupiter-engine</artifactid>
+                   <version>5.0.0-M3</version>
+                </dependency>
+                <dependency>
+                    <groupid>org.junit.vintage</groupid>
+                    <artifactid>junit-vintage-engine</artifactid>
+                   <version>4.12.0-M3</version>
+                </dependency>
+           </dependencies>
+        </plugin>
+      
     </plugins>
   </build>
 
