@@ -1,5 +1,7 @@
-ERPE https://travis-ci.org/masterdany88/erpe.svg?branch=master
+ERPE
 =====================
+
+[![Build Status](https://travis-ci.org/masterdany88/erpe.svg?branch=master)](https://travis-ci.org/masterdany88/erpe) 
 
 Prerequisites
 -------------
