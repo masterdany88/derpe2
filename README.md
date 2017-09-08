@@ -55,6 +55,19 @@ Then:
 
 See our development guide [here](tutorial-guide/DEVELOP.adoc) for more instructions on setting up dev mode and other details.
 
+
+Tests
+-----------------------------------
+
+You can run unit tests by running the following command at the command prompt:
+
+    mvn clean test
+
+You can run integration tests by running the following command at the command prompt:
+
+    mvn clean verify -P integration-test
+    
+    
 Troubleshooting
 ---------------
 
