@@ -44,6 +44,7 @@ Alternatively, you should be able to start the demo in development mode with thi
 
 When the GWT Dev Mode window opens, press "Launch Default Browser" to start the app. You can now debug client-side code directly in the browser using source maps (make sure source maps are enabled in your browser). Alternatively, you can also configure a debug environment for Eclipse by installing
 
+- newest gwt plugin for Eclipse: https://github.com/gwt-plugins/gwt-eclipse-plugin
 - the Google Plugin for Eclipse: https://developers.google.com/eclipse/docs/download
 - the SDBG plugin: http://sdbg.github.io/
 
