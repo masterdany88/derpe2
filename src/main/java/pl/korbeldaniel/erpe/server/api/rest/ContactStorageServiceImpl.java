@@ -32,18 +32,18 @@ import pl.korbeldaniel.erpe.client.shared.api.rest.ContactStorageService;
 import pl.korbeldaniel.erpe.client.shared.dto.ContactOperation;
 import pl.korbeldaniel.erpe.client.shared.dto.Operation;
 import pl.korbeldaniel.erpe.client.shared.entity.Contact;
-import pl.korbeldaniel.erpe.server.dao.ContactEntityService;
+import pl.korbeldaniel.erpe.server.dao.ContactDao;
 
 /**
  * Server-side implementation for the RPC service, {@link ContactStorageService}. Performs database CRUD operations
- * using the {@link ContactEntityService} and fires Errai CDI {@link Event Events} that are observed by clients over the
+ * using the {@link ContactDao} and fires Errai CDI {@link Event Events} that are observed by clients over the
  * wire to publish creation, update, and deletion of {@link Contact Contacts}.
  */
 @Stateless
 public class ContactStorageServiceImpl implements ContactStorageService {
 
   @Inject
-  private ContactEntityService entityService;
+  private ContactDao entityService;
 
   @Inject
   @Operation(CREATE)
@@ -59,7 +59,7 @@ public class ContactStorageServiceImpl implements ContactStorageService {
 
   @Override
   public List<Contact> getAllContacts() {
-    return entityService.getAllContacts();
+    return entityService.findAll();
   }
 
   @Override
@@ -83,7 +83,7 @@ public class ContactStorageServiceImpl implements ContactStorageService {
 
   @Override
   public Response delete(Long id) {
-    entityService.delete(id);
+    entityService.deleteById(id);
     // This event is delivered to call connected clients.
     deleted.fire(id);
 

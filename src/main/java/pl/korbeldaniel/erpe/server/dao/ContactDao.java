@@ -17,6 +17,7 @@
 package pl.korbeldaniel.erpe.server.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -31,12 +32,22 @@ import pl.korbeldaniel.erpe.client.shared.entity.Contact;
  */
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-public class ContactEntityService {
+public class ContactDao {
 
-  @PersistenceContext(unitName = "forge-default")
+  @PersistenceContext(unitName = "persistence-default")
   private EntityManager em;
 
-  public List<Contact> getAllContacts() {
+  public Optional<Contact> findById(Long id) {
+	  Contact result = em.createNamedQuery("SELECT c FROM Contact c where c.id = :id", Contact.class)
+			  .setParameter("id", id)
+			  .getSingleResult();
+	  return Optional.of(result);
+  }
+  public List<Contact> findAll() {
+	  return em.createNamedQuery(Contact.ALL_CONTACTS_QUERY, Contact.class).getResultList();
+  }
+  public List<Contact> findByName() {
+
     return em.createNamedQuery(Contact.ALL_CONTACTS_QUERY, Contact.class).getResultList();
   }
 
@@ -48,7 +59,7 @@ public class ContactEntityService {
     em.merge(contact);
   }
 
-  public void delete(final Long id) {
+  public void deleteById(final Long id) {
     final Contact contact = em.find(Contact.class, id);
     if (contact != null) {
       em.remove(contact);
