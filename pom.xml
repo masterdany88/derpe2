@@ -23,6 +23,9 @@
 		<errai.jboss.home>${project.build.directory}/wildfly-${as.version}</errai.jboss.home>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<ignore.war.tests.failure>true</ignore.war.tests.failure>
+		<gwt.compile.user.agent>ie8,ie9,ie10,gecko1_8,safari</gwt.compile.user.agent>
 	</properties>
 
 	<repositories>
@@ -422,6 +425,9 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+			<properties>
+				<gwt.compile.user.agent>gecko1_8</gwt.compile.user.agent>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
