@@ -14,4 +14,7 @@
 	<set-property name="compiler.useSourceMaps" value="true" />
 	<set-configuration-property name="includeSourceMapUrl"
 		value="http://localhost:8080/erpe/src/__HASH___sourceMap__FRAGMENT__.json" />
+	<set-property name="user.agent" value="safari" />
+<!-- 	<set-property name="user.agent" value="safari, gecko1_8" /> -->
+		
 </module>
