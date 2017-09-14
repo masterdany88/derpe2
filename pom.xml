@@ -23,6 +23,7 @@
 		<errai.jboss.home>${project.build.directory}/wildfly-${as.version}</errai.jboss.home>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<gwt.compile.user.agent>ie8,ie9,ie10,gecko1_8,safari</gwt.compile.user.agent>
 	</properties>
 
 	<repositories>
@@ -449,6 +450,7 @@
 				<!-- Only unit tests are run when the development profile is active -->
 				<skip.integration.tests>true</skip.integration.tests>
 				<skip.unit.tests>false</skip.unit.tests>
+				<gwt.compile.user.agent>gecko1_8</gwt.compile.user.agent>
 			</properties>
 		</profile>
 		<profile>
