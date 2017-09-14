@@ -34,7 +34,7 @@ import pl.korbeldaniel.erpe.client.shared.entity.Contact;
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class ContactDao {
 
-  @PersistenceContext(unitName = "persistence-default")
+  @PersistenceContext(unitName = "persistenceDefault")
   private EntityManager em;
 
   public Optional<Contact> findById(Long id) {
