@@ -32,10 +32,7 @@ import pl.korbeldaniel.erpe.client.shared.entity.Contact;
  */
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-public class ContactDao {
-
-  @PersistenceContext(unitName = "persistenceDefault")
-  private EntityManager em;
+public class ContactDao extends GenericDao<Contact>{
 
   public Optional<Contact> findById(Long id) {
 	  Contact result = em.createNamedQuery("SELECT c FROM Contact c where c.id = :id", Contact.class)
