@@ -16,19 +16,18 @@
 
 package pl.korbeldaniel.erpe.client.local;
 
-import static org.jboss.errai.common.client.dom.Window.getDocument;
+import com.google.gwt.user.client.ui.RootPanel;
+
+import pl.korbeldaniel.erpe.client.local.JQueryProducer.JQuery;
+
+import org.jboss.errai.ioc.client.api.EntryPoint;
+import org.jboss.errai.ui.nav.client.local.NavigationPanel;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.dom.Body;
-import pl.korbeldaniel.erpe.client.local.JQueryProducer.JQuery;
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.nav.client.local.NavigationPanel;
-
-import com.google.gwt.user.client.ui.RootPanel;
-
+import static elemental2.dom.DomGlobal.document;
 /**
  * <p>
  * This bean attaches the {@link NavBar} and {@link NavigationPanel} when the application starts.
@@ -48,13 +47,12 @@ public class AppSetup {
   private NavBar navbar;
 
   @Inject
-  private JQuery jquery;
+  private JQuery $;
 
   @PostConstruct
   public void init() {
     RootPanel.get("rootPanel").add(navPanel);
-    final Body body = getDocument().getBody();
-    jquery.wrap(jquery.wrap(body).children().first()).before(navbar.getElement());
+    $.wrap($.wrap(document.body).children().first()).before(navbar.getElement());
   }
 
 }
